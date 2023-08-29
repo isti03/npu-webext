@@ -20,11 +20,17 @@
     "url": "https://github.com/solymosi/npu/issues"
   },
   "homepage": "https://github.com/solymosi/npu#readme",
+  "dependencies": {
+    "jquery": "^1.11.1",
+    "webextension-polyfill": "^0.10.0"
+  },
   "devDependencies": {
+    "copy-webpack-plugin": "^11.0.0",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.7.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^2.8.4",
+    "web-ext": "^7.6.2",
     "webpack": "^5.76.2",
     "webpack-cli": "^5.0.1"
   }

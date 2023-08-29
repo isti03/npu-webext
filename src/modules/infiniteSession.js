@@ -34,7 +34,7 @@ function initKeepSession() {
       $("#upTraining_lblRemainingTime").html(
         `<span id="npuStatus" style="font-weight: normal">` +
           `<a href="https://github.com/solymosi/npu" target="_blank">Neptun PowerUp!</a> ` +
-          `v${GM.info.script.version}` +
+          `v${require("/package.json").version}` +
           `</span>`
       );
     }

@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Neptun PowerUp!",
+  "version": "2.4.0",
+  "description": "Felturbózza a Neptun-odat",
+
+  "permissions": ["storage"],
+
+  "content_scripts": [
+    {
+      "matches": ["https://*.neptun.elte.hu/*"],
+      "js": ["npu.user.js"]
+    }
+  ],
+
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "npu@solymo.si"
+    }
+  }
+}

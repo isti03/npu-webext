@@ -1,6 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 const webpack = require("webpack");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: "production",
@@ -15,17 +16,16 @@ module.exports = {
     minimize: false,
   },
   plugins: [
-    new webpack.BannerPlugin({
-      banner: () => {
-        const version = JSON.parse(fs.readFileSync(path.join(__dirname, "package.json"), "utf8")).version;
-        if (typeof version !== "string" || !/^\d+\.\d+\.\d+$/.exec(version)) {
-          throw new Error(`Invalid package version: ${version}`);
-        }
-        const meta = fs.readFileSync(path.join(__dirname, "src", "meta.txt"), "utf8");
-        return meta.replace("<version>", version);
-      },
-      entryOnly: true,
-      raw: true,
+    new webpack.ProvidePlugin({
+      "window.jQuery": 'jquery'
+    }),
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve("./src/manifest.json"), 
+          to: "manifest.json" 
+        },
+      ],
     }),
   ],
   module: {
